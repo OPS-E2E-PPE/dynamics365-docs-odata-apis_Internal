@@ -1,1 +1,0 @@
-# Welcome to dynamics365-docs-odata-apis_internal!

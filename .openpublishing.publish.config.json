@@ -10,11 +10,23 @@
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
-        "ManagedReference": "Content",
-        "RestApi": "Content"
+        "ODataIndex": "Content",
+        "OData": "Content"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
+      "version": 0,
+      "customized_tasks": {
+        "docset_prebuild": [
+          "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
+        ]
+      },
+      "JoinTOCPlugin": [
+        {
+          "ReferenceTOC": "webapi-reference/dynamics-ce-odata-9/toc.yml",
+          "ConceptualTOCUrl": "/dynamics365/customer-engagement/developer/webapi/toc.json"
+        }
+      ]
     }
   ],
   "notification_subscribers": [],
@@ -26,10 +38,19 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "master-prerelease",
       "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false
+  "need_generate_pdf_url_template": false,
+  "dependent_packages": [
+    {
+      "id": "Microsoft.OpenPublishing.CommonPlugins",
+      "nuget_feed": "https://www.myget.org/F/op-dev/api/v2",
+      "path_to_root": "_dependentPackages/CommonPlugins",
+      "target_framework": "net45",
+      "version": "latest-prerelease"
+    }
+  ]
 }
